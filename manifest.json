@@ -1,0 +1,39 @@
+{
+  "manifest_version": 2,
+  "name": "TastyChromeInstagram",
+  "version": "1.0.0",
+  "description": "Chrome extension for Instagram profile page, enhance user experience",
+  "permissions": [
+    "tabs",
+    "cookies",
+    "webRequest",
+    "webRequestBlocking",
+    "*://*.instagram.com/*"
+  ],
+  "background": {
+    "scripts": [
+      "js/event.js"
+    ],
+    "persistent": true
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.instagram.com/*"],
+      "js": ["content.js"],
+      "css" : ["css/main.css"]
+    }
+  ],
+  "web_accessible_resources": [
+    "map/*",
+    "css/*",
+    "images/*",
+    "html/*",
+    "assets/*"
+  ],
+  "icons": {
+    "16": "images/tasty_chrome_instagram.png",
+    "48": "images/tasty_chrome_instagram.png",
+    "128": "images/tasty_chrome_instagram.png"
+  },
+  "homepage_url": "https://github.com/jasperck/TastyChromeInstagram"
+}
