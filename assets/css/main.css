@@ -1,0 +1,28 @@
+.enhance-ig-chrome-profile-main .tabs {
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  height: 50px;
+}
+
+.enhance-ig-chrome-profile-main .tabs .tab-my,
+.enhance-ig-chrome-profile-main .tabs .tab-liked {
+  width: 50%;
+  text-align: center;
+}
+
+.enhance-ig-chrome-profile-main .tabs .tab-my:hover,
+.enhance-ig-chrome-profile-main .tabs .tab-liked:hover
+{
+  border-bottom: 2px solid rgba(0,0,0,1)
+}
+
+/*.tab-map {
+  background-image: url('chrome-extension://gdmopfibofdldbjanndaiamoifnmhhol/assets/mapIcon.png');
+  background-size: 30%;
+  background-repeat: no-repeat;
+}*/
+
+#enhance-ig-chrome-disable {
+  display: none;
+}
