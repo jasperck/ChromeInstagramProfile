@@ -22,6 +22,14 @@ class LikedList extends Component {
         listItem: {
           height: '80px'
         },
+        listText: {
+          display: 'inline-block'
+        },
+        listTextData: {
+          fontWeight: '700',
+          fontSize: '15px',
+          color: 'rgba(0, 0, 0, 1)'
+        },
         subheader: {
           paddingLeft: '15px'
         },
@@ -71,6 +79,14 @@ class LikedList extends Component {
       );
     })
   )
+
+  generateListText = (userPhotoList) => {
+    return (
+      <div className='list-text' style={this.state.styles.listText}>
+      You liked <span style={this.state.styles.listTextData}>{userPhotoList.length}</span> photos of <span style={this.state.styles.listTextData}>@{userPhotoList[0].user.username}</span>
+      </div>
+    );
+  }
   
   generateLikedList = (list) => {
     return Object.keys(list).map((user, key) => {
@@ -78,6 +94,7 @@ class LikedList extends Component {
       let userData = list[user][0]['user'];
 
       let LikesNestItems = this.generateLikesNestItems(userList);
+      let listText = this.generateListText(userList);
 
       return (
         <ListItem
@@ -86,10 +103,11 @@ class LikedList extends Component {
           className={`liked liked-${key}`}
           style={this.state.styles.listItem}
           nestedListStyle={this.state.styles.likesContainer}
+          primaryTogglesNestedList={true}
           nestedItems={LikesNestItems}
           leftAvatar={<Avatar src={userData.profile_pic_url} size={60} />}>
           <Subheader inset={true}>
-            {userData.username}
+            {listText}
           </Subheader>
         </ListItem>
       );
