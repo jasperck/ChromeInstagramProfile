@@ -1,6 +1,7 @@
 import {
   SET_LIKED,
-  UPDATE_LIKED
+  UPDATE_LIKED,
+  RESET_LIKED
 } from '../actions';
 
 const initialState = {
@@ -15,11 +16,14 @@ export const liked = (state = initialState, action) => {
   switch (action.type) {
     case SET_LIKED:
     case UPDATE_LIKED:
-    console.log(state.items, action.data.items);
       return {
         ...state,
         ...action.data,
         items: [...state.items, ...action.data.items],
+      };
+    case RESET_LIKED:
+      return {
+        ...initialState
       };
     default:
       return state;

@@ -71,8 +71,16 @@ class App extends Component {
     });
   }
 
+  resetLiked = () => {
+    this.props.dispatch({
+      type: 'RESET_LIKED'
+    });
+  }
+
   componentDidMount() {
     chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+      this.resetLiked();
+
       if (this.isInMyPersonalPage()) {
         this.setState({ showTabs: true });
 
@@ -87,7 +95,7 @@ class App extends Component {
     }
 
     return (
-      <LikedList liked={this.props.liked} onLoadMoreClicked={this.loadMoreHandler} />
+      <LikedList liked={this.props.liked} onLoadMoreClicked={this.loadMoreHandler} reset={this.resetLiked} />
     );
   }
 

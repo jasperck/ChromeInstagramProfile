@@ -96,6 +96,10 @@ class LikedList extends Component {
     })
   }
 
+  componentWillUnmount() {
+    this.props.reset();
+  }
+
   render() {
     let {
       items: likes,
