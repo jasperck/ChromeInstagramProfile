@@ -1,6 +1,8 @@
 # Tasty Chrome Instagram
 Chrome extension for Instagram personal page, enhance user experience.  
 
+![image](https://github.com/jasperck/TastyChromeInstagram/blob/master/demo.gif)
+
 ## Features
 * Application built on React + Redux
 * Support browsing instas you'd liked
